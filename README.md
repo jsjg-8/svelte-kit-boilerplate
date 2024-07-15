@@ -1,38 +1,20 @@
-# create-svelte
+# Svelte-Kit Boilerplate
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+![Svelte-Kit Boilerplate User Interface](https://github.com/delay/sveltekit-auth/assets/638246/3fbb5318-cf46-40ab-a33b-9660019beec8)
 
-## Creating a project
+This is a Svelte-Kit Boilerplate Project, an updated version of the original [Sveltekit Auth](https://github.com/delay/sveltekit-auth). This boilerplate project is designed to help you get started quickly with Svelte-Kit, offering modern authentication and UI features out of the box. An example website is currently deployed [here](https://sveltekit-auth-alpha.vercel.app). It is released as open source under an MIT license.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- **Authentication**: Utilizes [Lucia](https://lucia-auth.com/) for robust authentication.
+- **UI Components**: Leverages [shadcn-svelte](https://www.shadcn-svelte.com/) for beautifully designed UI elements.
+- **Icons**: Includes [Lucide](https://lucide.dev) for scalable and customizable icons.
+- **Database Connectivity**: Uses [Drizzle](https://orm.drizzle.team/) for efficient and type-safe database interactions.
+- **Form Management**: Employs [Superforms](https://superforms.vercel.app) and [Zod](https://zod.dev) for form validation and management.
+- **Email Features**: Supports email verification, password reset, and email re-verification on changes.
+- **User Roles**: Implements a user role system.
+- **Profile Management**: Allows users to edit their profiles, including changing email addresses and passwords.
+- **Themes**: Supports light and dark modes.
+- **Logging**: Integrated error logging system using [Axiom](https://jeffmcmorris.medium.com/awesome-logging-in-sveltekit-6afa29c5892c).
+- **OAuth**: Provides a Google OAuth login example.
+- **Performance**: Achieves excellent scores on [Google PageSpeed Insights](https://pagespeed.web.dev).
