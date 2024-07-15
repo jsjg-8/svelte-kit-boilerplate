@@ -1,8 +1,7 @@
 # Svelte-Kit Boilerplate
 
 ![Svelte-Kit Boilerplate User Interface](https://github.com/delay/sveltekit-auth/assets/638246/3fbb5318-cf46-40ab-a33b-9660019beec8)
-
-This is a Svelte-Kit Boilerplate Project, an updated version of the original [Sveltekit Auth](https://github.com/delay/sveltekit-auth). This boilerplate project is designed to help you get started quickly with Svelte-Kit, offering modern authentication and UI features out of the box. An example website is currently deployed [here](https://sveltekit-auth-alpha.vercel.app). It is released as open source under an MIT license.
+Welcome to the Svelte-Kit Boilerplate! This project is an updated and enhanced version of the original Sveltekit Auth. It provides a robust foundation for building modern web applications with Svelte-Kit, complete with authentication, UI components, and more.
 
 ## Features
 
