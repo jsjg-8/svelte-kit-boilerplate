@@ -11,10 +11,40 @@ This is a Svelte-Kit Boilerplate Project, an updated version of the original [Sv
 - **Icons**: Includes [Lucide](https://lucide.dev) for scalable and customizable icons.
 - **Database Connectivity**: Uses [Drizzle](https://orm.drizzle.team/) for efficient and type-safe database interactions.
 - **Form Management**: Employs [Superforms](https://superforms.vercel.app) and [Zod](https://zod.dev) for form validation and management.
-- **Email Features**: Supports email verification, password reset, and email re-verification on changes.
+- **Email Features**: Supports email verification, password reset, and email re-verification on changes. Supports mailtrap, SES, mailgun, and SMTP.
 - **User Roles**: Implements a user role system.
 - **Profile Management**: Allows users to edit their profiles, including changing email addresses and passwords.
 - **Themes**: Supports light and dark modes.
 - **Logging**: Integrated error logging system using [Axiom](https://jeffmcmorris.medium.com/awesome-logging-in-sveltekit-6afa29c5892c).
 - **OAuth**: Provides a Google OAuth login example.
 - **Performance**: Achieves excellent scores on [Google PageSpeed Insights](https://pagespeed.web.dev).
+
+## Getting Started
+
+1. **Clone the repository**:
+
+    ```sh
+    git clone https://github.com/your-username/svelte-kit-boilerplate.git
+    cd svelte-kit-boilerplate
+    ```
+
+2. **Install dependencies**:
+
+    ```sh
+    npm install
+    ```
+
+3. **Set up environment variables**:
+    - Create a `.env` file and add necessary environment variables for your authentication, database, and other services.
+
+4. **Run the development server**:
+
+    ```sh
+    npm run dev
+    ```
+
+5. **Build for production**:
+
+    ```sh
+    npm run build
+    ```
