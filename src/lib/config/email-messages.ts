@@ -6,9 +6,9 @@ import {
 	generateEmailUpdateEmails
 } from '$lib/server/email-contents';
 
-export const sendVerificationEmail = async (email: string, token: string) => {
+export const sendVerificationEmail = async (email: string, token: string, username: string) => {
 	try {
-		const { text, html, subject } = generateVerificationEmail(token);
+		const { text, html, subject } = generateVerificationEmail(token, username);
 		const result = await sendEmail(email, subject, html, text);
 		return result;
 	} catch (error) {
@@ -17,9 +17,9 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 	}
 };
 
-export const sendWelcomeEmail = async (email: string) => {
+export const sendWelcomeEmail = async (email: string, username: string) => {
 	try {
-		const { text, html, subject } = generateWelcomeEmail();
+		const { text, html, subject } = generateWelcomeEmail(username);
 		const result = await sendEmail(email, subject, html, text);
 		return result;
 	} catch (error) {
@@ -28,9 +28,9 @@ export const sendWelcomeEmail = async (email: string) => {
 	}
 };
 
-export const sendPasswordResetEmail = async (email: string, token: string) => {
+export const sendPasswordResetEmail = async (email: string, token: string, username: string) => {
 	try {
-		const { text, html, subject } = generatePasswordResetEmail(token);
+		const { text, html, subject } = generatePasswordResetEmail(username, token);
 		const result = await sendEmail(email, subject, html, text);
 		return result;
 	} catch (error) {
@@ -42,12 +42,14 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
 export const updateEmailAddressSuccessEmail = async (
 	email: string,
 	oldEmail: string,
-	token: string
+	token: string,
+	username: string
 ) => {
 	try {
 		const { newEmail, oldEmail: oldEmailContent } = generateEmailUpdateEmails(
 			email,
 			oldEmail,
+			username,
 			token
 		);
 		await sendEmail(email, newEmail.subject, newEmail.html, newEmail.text);

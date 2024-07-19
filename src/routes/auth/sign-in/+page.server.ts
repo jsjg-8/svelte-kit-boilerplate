@@ -60,15 +60,27 @@ export const actions: Actions = {
 						...sessionCookie.attributes
 					});
 					setFlash({ type: 'success', message: 'Sign in successful.' }, event);
+					redirect(302, '/(protected)/dashboard');
+					return new Response(null, {
+						status: 302,
+						headers: {
+							Location: '/',
+							'Set-Cookie': sessionCookie.serialize()
+						}
+					});
 				}
 			}
 		} catch (e) {
-			//TODO: need to return error message to client
-			console.error(e);
-			// email already in use
-			//const { fieldErrors: errors } = e.flatten();
-			setFlash({ type: 'error', message: 'The email or password is incorrect.' }, event);
-			return setError(form, 'The email or password is incorrect.');
+			if (e instanceof URIError) {
+				setFlash({ type: 'error', message: 'Invalid username or password.' }, event);
+				return setError(form, 'Invalid username or password.');
+			} else {
+				setFlash(
+					{ type: 'error', message: 'An unexpected error occurred. Please try again later.' },
+					event
+				);
+				return setError(form, 'An unexpected error occurred. Please try again later.');
+			}
 		}
 
 		return { form };

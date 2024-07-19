@@ -73,6 +73,7 @@
     "cmdk-sv": "^0.0.17",
     "drizzle-orm": "^0.32.0",
     "embla-carousel-svelte": "^8.1.6",
+    "handlebars": "^4.7.8",
     "lucia": "^3.2.0",
     "lucide-svelte": "^0.408.0",
     "mailtrap": "^3.3.0",

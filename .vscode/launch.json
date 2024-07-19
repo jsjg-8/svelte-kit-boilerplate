@@ -8,7 +8,8 @@
 			"command": " bun run dev",
 			"name": "Run npm start",
 			"request": "launch",
-			"type": "node-terminal"
+			"type": "node-terminal",
+			"skipFiles": ["<node_internals>/**"]
 		},
 		{
 			"name": "Attach",

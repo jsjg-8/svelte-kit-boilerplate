@@ -32,7 +32,7 @@ export const actions = {
 			console.log('reset user password');
 			const token = crypto.randomUUID();
 			await updateUser(user.id, { token: token });
-			await sendPasswordResetEmail(form.data.email, token);
+			await sendPasswordResetEmail(form.data.email, token, user.firstName);
 		} catch (e) {
 			console.error(e);
 			return setError(
