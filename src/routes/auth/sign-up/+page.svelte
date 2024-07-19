@@ -4,7 +4,7 @@
 	import * as Form from '$lib/components/ui/form';
 	import * as Card from '$lib/components/ui/card';
 	import { type SignUpSchema } from '../schema';
-	import { superForm, type SuperValidated } from 'sveltekit-superforms';
+	import SuperDebug, { superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { Loader2 } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import Input from '$lib/components/ui/input/input.svelte';
@@ -14,8 +14,8 @@
 	let data: { form: SuperValidated<SignUpSchema> } = { form: $page.data.Signupform };
 
 	const form = superForm(data.form);
-	let checked:boolean;
-	const { form: formData, enhance , delayed, timeout  } = form;
+	$: checked = true;
+	const { form: formData, enhance , delayed } = form;
 </script>
 
 
@@ -61,11 +61,11 @@
 				</Form.Field>
 				<Form.Field
 					{form}
-					class="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4"
+					class="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4"
 					name="terms"
 				>
 					<Form.Control let:attrs>
-						<Checkbox {...attrs} bind:checked={$formData.terms} />
+						<Checkbox  {...attrs} bind:checked={$formData.terms} />
 						<div class="space-y-1 leading-none">
 							<Form.Label>I Accept the terms and privacy policy.</Form.Label>
 							<Form.Description>
@@ -78,13 +78,14 @@
 				</Form.Field>
 			</Card.Content>
 			<Card.Footer>
-				<Form.Button class="w-full" disabled={false}
-					>{#if false}
+				<Form.Button class="w-full" disabled={$delayed}
+					>{#if $delayed}
 						<Loader2 class="mr-2 h-4 w-4 animate-spin" />
 						Please wait{:else}Sign Up{/if}
 				</Form.Button>
 			</Card.Footer>
 		</Card.Root>
+		<SuperDebug data={$formData} />
 	</form>
 </div>
-{@debug checked}
+{@debug checked, formData}

@@ -18,7 +18,6 @@ export const load: PageServerLoad = async (event) => {
 		redirect(302, '/dashboard');
 	}
 	const loginForm = await superValidate(zod(signInSchema));
-	console.log('form:', loginForm);
 	return {
 		loginForm
 	};

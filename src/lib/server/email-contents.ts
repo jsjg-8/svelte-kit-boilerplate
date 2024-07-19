@@ -26,8 +26,8 @@ const emailStyles = `
   }
   .button {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
+    padding: 2px 4px;
+    margin: 4px 0;
     font-size: 16px;
     color: #fff;
     background-color: #007BFF;
@@ -80,7 +80,7 @@ export const generateVerificationEmail = (token: string) => {
 export const generateWelcomeEmail = () => {
 	const text = `Thanks for verifying your account with ${APP_NAME}.\nYou can now sign in to your account at the link below.\n\n${BASE_URL}/auth/sign-in`;
 	const html = emailTemplate(
-		'Welcome to ${APP_NAME}',
+		`Welcome to ${APP_NAME}`,
 		`Thanks for verifying your account with ${APP_NAME}.<br>You can now <a href="${BASE_URL}/auth/sign-in" class="button">sign in</a> to your account.`
 	);
 	return { text, html, subject: `Welcome to ${APP_NAME}` };

@@ -27,17 +27,18 @@ import { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } from '$env/static/private'
 const emailProvider = EMAIL_PROVIDER;
 const senderEmail = FROM_EMAIL;
 
+const ses = new aws.SES({
+	apiVersion: AWS_API_VERSION,
+	region: AWS_REGION,
+	credentials: {
+		accessKeyId: AWS_ACCESS_KEY_ID,
+		secretAccessKey: AWS_SECRET_ACCESS_KEY
+	}
+});
+
 function createTransport() {
 	switch (emailProvider) {
 		case 'ses':
-			const ses = new aws.SES({
-				apiVersion: AWS_API_VERSION,
-				region: AWS_REGION,
-				credentials: {
-					accessKeyId: AWS_ACCESS_KEY_ID,
-					secretAccessKey: AWS_SECRET_ACCESS_KEY
-				}
-			});
 			return nodemailer.createTransport({
 				SES: { ses, aws }
 			});
