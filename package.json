@@ -18,7 +18,7 @@
     "test:unit": "vitest"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@playwright/test": "^1.28.1",
@@ -71,7 +71,6 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.614.0",
     "@axiomhq/js": "^1.1.0",
-    "@cloudflare/workerd-windows-64": "^1.20240718.0",
     "@internationalized/date": "^3.5.4",
     "@lucia-auth/adapter-drizzle": "^1.0.7",
     "@sendgrid/mail": "^8.1.3",
