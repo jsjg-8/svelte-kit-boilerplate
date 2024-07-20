@@ -15,17 +15,18 @@
 	};
 </script>
 
-	<!-- Call to Action Section -->
-	<section class="bg-gray-900 py-12 text-white md:py-24">
-		<div class="container mx-auto grid items-center gap-6 px-4 text-center">
-			<h2 class="text-3xl font-bold md:text-4xl">Get Started with {APP_NAME} Today</h2>
-			<p class="mt-2 text-lg md:text-xl">
-				Join the community of developers using this boilerplate to build amazing projects.
-			</p>
-			<div class="mt-6 flex justify-center gap-4">
-				<Button class=" border" on:click={() => goto('/auth/sign-in')}>Sign in</Button>
-				<Button variant="outline" class="text-foreground" on:click={() => goto('/auth/sign-up')}>Sign up</Button>
-			</div>
+<!-- Call to Action Section -->
+<section class="bg-gray-900 py-12 text-white md:py-24">
+	<div class="container mx-auto grid items-center gap-6 px-4 text-center">
+		<h2 class="text-3xl font-bold md:text-4xl">Get Started with {APP_NAME} Today</h2>
+		<p class="mt-2 text-lg md:text-xl">
+			Join the community of developers using this boilerplate to build amazing projects.
+		</p>
+		<div class="mt-6 flex justify-center gap-4">
+			<Button class=" border" on:click={() => goto('/auth/sign-in')}>Sign in</Button>
+			<Button variant="outline" class="text-foreground" on:click={() => goto('/auth/sign-up')}
+				>Sign up</Button
+			>
 		</div>
-	</section>
-
+	</div>
+</section>

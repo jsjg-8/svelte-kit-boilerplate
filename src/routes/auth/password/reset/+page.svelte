@@ -19,11 +19,11 @@
 		delayMs: 100,
 		timeoutMs: 8000,
 		multipleSubmits: 'prevent'
-		});
-	const { form: formData, enhance , delayed, timeout  } = form;
+	});
+	const { form: formData, enhance, delayed, timeout } = form;
 </script>
 
-<div class="flex items-center justify-center mx-auto h-screen max-w-2xl">
+<div class="mx-auto flex h-screen max-w-2xl items-center justify-center">
 	<form method="POST" use:enhance>
 		<Card.Root>
 			<Card.Header class="space-y-1">

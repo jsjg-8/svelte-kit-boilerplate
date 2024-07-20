@@ -5,11 +5,20 @@ import path from 'path';
 // Read the HTML template
 const emailTemplatePath = path.resolve('src/lib/templates/email.html');
 const emailTemplateContent = fs.readFileSync(emailTemplatePath, 'utf8');
+type vars = {
+	preheader_text: string;
+	recipient_name: string;
+	email_body: string;
+	additional_message: string;
+	cta_link: string;
+	cta_text: string;
+	year: string;
+};
 
-const generateEmailHtml = (variables) => {
+const generateEmailHtml = (variables: vars) => {
 	let emailHtml = emailTemplateContent;
 
-	Object.keys(variables).forEach((key) => {
+	(Object.keys(variables) as Array<keyof vars>).forEach((key) => {
 		const placeholder = `{{${key}}}`;
 		emailHtml = emailHtml.replace(new RegExp(placeholder, 'g'), variables[key]);
 	});
@@ -38,7 +47,7 @@ export const generateVerificationEmail = (name: string, token: string) => {
 
 // Similarly update the other functions
 export const generateWelcomeEmail = (name: string) => {
-	const variables = {
+	const variables: vars = {
 		preheader_text: 'Welcome to our community!',
 		recipient_name: name,
 		email_body: `Thanks for verifying your account with ${APP_NAME}.<br>You can now <a href="${BASE_URL}/auth/sign-in" class="button">sign in</a> to your account.`,

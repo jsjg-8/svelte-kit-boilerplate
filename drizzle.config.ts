@@ -12,5 +12,5 @@ export default {
 	dbCredentials: {
 		url: DATABASE_URL
 	},
-	breakpoints: false,
+	breakpoints: false
 } satisfies Config;

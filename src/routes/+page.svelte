@@ -19,11 +19,6 @@
 		authorName: 'JSJG',
 		website: 'https://jsjg.pro'
 	};
-	import {
-		Layout,
-		Database,
-	} from 'lucide-svelte';
-	import { blur } from 'svelte/transition';
 
 	type Features = {
 		title: string;
@@ -36,43 +31,46 @@
 			title: 'Authentication',
 			content:
 				"Utilizes <a href='https://lucia-auth.com/' class='underline'>Lucia</a> for robust authentication.",
-			imglink: '<img src="lucia_auth.jpg" width=24>',
+			imglink: '<img src="lucia_auth.jpg" alt="lucia logo" width=24>'
 		},
 		{
 			title: 'UI Elements',
 			content:
 				"Built with beautiful <a href='https://www.shadcn-svelte.com' class='underline'>shadcn-svelte</a> components.",
-			imglink: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-6 w-6"><rect width="256" height="256" fill="none"></rect><line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="#EB4F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="#EB4F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>'
+			imglink:
+				'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-6 w-6"><rect width="256" height="256" fill="none"></rect><line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="#EB4F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="#EB4F27" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>'
 		},
 		{
 			title: 'Database Connectivity',
 			content:
 				"Uses <a href='https://orm.drizzle.team/' class='underline'>Drizzle</a> for type-safe database connectivity.",
-			imglink: '<svg width="48" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 24.459 24.3583)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 43.2793 12.6755)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 72.2383 12.676)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 53.4121 24.3583)" fill="black"/></svg>'
+			imglink:
+				'<svg width="48" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 24.459 24.3583)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 43.2793 12.6755)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 72.2383 12.676)" fill="black"/><rect width="5.41766" height="22.979" transform="matrix(0.873028 0.48767 -0.497212 0.867629 53.4121 24.3583)" fill="black"/></svg>'
 		},
 		{
 			title: 'Form Management',
 			content:
 				"Integrated with <a href='https://superforms.rocks/' class='underline'>Superforms</a> for easy form handling.",
-			imglink: '<img src="superforms.svg" width=24>'
+			imglink: '<img src="superforms.svg"  alt="superforms logo" width=24>'
 		},
 		{
 			title: 'Schema Validation',
 			content:
 				"Ensures data integrity with <a href='https://zod.dev/' class='underline'>Zod</a> schema validation.",
-			imglink: '<img src="https://zod.dev/logo.svg" width=24>'
+			imglink: '<img src="https://zod.dev/logo.svg"  alt="zod logo" width=24>'
 		},
 		{
 			title: 'Icons',
 			content:
 				"Includes a wide range of icons from <a href='https://lucide.dev/' class='underline'>Lucide</a>.",
-			imglink: '<img src="https://lucide.dev/logo.light.svg" width=24>'
+			imglink: '<img src="https://lucide.dev/logo.light.svg"  alt="lucide icons logo" width=24>'
 		}
 	];
 	const qa = [
 		{
 			question: 'How do I get started?',
-			answer: 'Check out the <a href="https://github.com/jsjg-8/svelte-kit-boilerplate" class="underline">GitHub repository</a> for instructions on how to set up the project.</p>'
+			answer:
+				'Check out the <a href="https://github.com/jsjg-8/svelte-kit-boilerplate" class="underline">GitHub repository</a> for instructions on how to set up the project.</p>'
 		},
 		{
 			question: 'What authentication system does this project use?',
@@ -146,7 +144,7 @@
 		<div class="container mx-auto grid items-center gap-6 px-4">
 			<div class="mx-auto max-w-2xl text-center">
 				<h1
-					class="text-4xl font-extrabold leading-tight tracking-tighter text-popover-foreground bg-background md:text-5xl"
+					class="bg-background text-4xl font-extrabold leading-tight tracking-tighter text-popover-foreground md:text-5xl"
 				>
 					{APP_NAME}
 				</h1>
@@ -175,7 +173,7 @@
 			<div class="grid max-w-5xl gap-12 md:grid-cols-3">
 				{#each cards as card}
 					<Card.Root
-						class=" border-none shadow-none hover:bg-primary hover:text-primary-foreground hover:shadow-sm"
+						class=" border-none shadow-none hover:bg-primary hover:text-primary-foreground hover:shadow-md"
 					>
 						<Card.Header>
 							<div
@@ -204,10 +202,12 @@
 	<section class="bg-background py-12 text-foreground md:py-24">
 		<div class="container mx-auto grid gap-12 px-4">
 			<div class="text-center">
-				<h2 class="text-3xl font-bold text-popover-foreground md:text-4xl">Frequently Asked Questions</h2>
+				<h2 class="text-3xl font-bold text-popover-foreground md:text-4xl">
+					Frequently Asked Questions
+				</h2>
 				<p class="mt-2 text-lg text-gray-700 md:text-xl">Common questions about the boilerplate.</p>
 			</div>
-			<Accordion.Root  class="mx-auto w-full sm:max-w-[70%]">
+			<Accordion.Root class="mx-auto w-full sm:max-w-[70%]">
 				{#each qa as { question, answer }}
 					<Accordion.Item value={question}>
 						<Accordion.Trigger>{question}</Accordion.Trigger>

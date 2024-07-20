@@ -8,7 +8,7 @@
 	import Logo from '$lib/components/logo/logo.svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import {convertNameToInitials} from '$lib/utils';
+	import { convertNameToInitials } from '$lib/utils';
 
 	export let user: any;
 	$: currentPage = $page.url.pathname;
@@ -30,7 +30,7 @@
 	}
 </script>
 
-<header class="bg-background sticky top-0 z-40 w-full border-b">
+<header class="sticky top-0 z-40 w-full border-b bg-background">
 	<div class="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
 		<div class="flex gap-6 md:gap-10">
 			<a class="flex items-center space-x-2" href="/"
@@ -137,4 +137,3 @@
 		@apply text-primary;
 	}
 </style>
-

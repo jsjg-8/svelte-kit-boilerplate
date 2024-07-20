@@ -12,10 +12,10 @@
 	let data: { loginForm: SuperValidated<SignInSchema> } = { loginForm: $page.data.loginForm };
 	const form = superForm(data.loginForm);
 
-	const { form: formData, enhance , delayed } = form;
+	const { form: formData, enhance, submitting } = form;
 </script>
 
-<div class="flex flex-col h-screen items-center justify-center mx-auto max-w-2xl">
+<div class="mx-auto flex h-screen max-w-2xl flex-col items-center justify-center">
 	<form method="POST" use:enhance>
 		<Card.Root>
 			<Card.Header class="space-y-1">

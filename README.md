@@ -22,28 +22,29 @@ Welcome to the Svelte-Kit Boilerplate! This project is an updated and enhanced v
 
 1. **Clone the repository**:
 
-    ```sh
-    git clone https://github.com/your-username/svelte-kit-boilerplate.git
-    cd svelte-kit-boilerplate
-    ```
+   ```sh
+   git clone https://github.com/your-username/svelte-kit-boilerplate.git
+   cd svelte-kit-boilerplate
+   ```
 
 2. **Install dependencies**:
 
-    ```sh
-    npm install
-    ```
+   ```sh
+   npm install
+   ```
 
 3. **Set up environment variables**:
-    - Create a `.env` file and add necessary environment variables for your authentication, database, and other services.
+
+   - Create a `.env` file and add necessary environment variables for your authentication, database, and other services.
 
 4. **Run the development server**:
 
-    ```sh
-    npm run dev
-    ```
+   ```sh
+   npm run dev
+   ```
 
 5. **Build for production**:
 
-    ```sh
-    npm run build
-    ```
+   ```sh
+   npm run build
+   ```

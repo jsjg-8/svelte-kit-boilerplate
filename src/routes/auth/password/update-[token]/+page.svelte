@@ -9,12 +9,14 @@
 	import { Button } from '$lib/components/ui/button';
 	import Input from '$lib/components/ui/input/input.svelte';
 
-	let data: { form: SuperValidated<UserUpdatePasswordSchema> } = { form: $page.data.UpdatePasswordForm };
+	let data: { form: SuperValidated<UserUpdatePasswordSchema> } = {
+		form: $page.data.UpdatePasswordForm
+	};
 	const form = superForm(data.form);
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<div class="flex flex-col items-center justify-center mx-auto max-w-2xl">
+<div class="mx-auto flex max-w-2xl flex-col items-center justify-center">
 	<Button class="m-4" on:click={() => goto('/')}>Back to Home</Button>
 	<form method="POST" use:enhance>
 		<Card.Root>
@@ -33,7 +35,12 @@
 				<Form.Field {form} name="confirmPassword">
 					<Form.Control let:attrs>
 						<Form.Label>Confirm New Password</Form.Label>
-						<Input {...attrs} type="password" name={attrs.name} bind:value={$formData.confirmPassword} />
+						<Input
+							{...attrs}
+							type="password"
+							name={attrs.name}
+							bind:value={$formData.confirmPassword}
+						/>
 						<Form.FieldErrors />
 					</Form.Control>
 				</Form.Field>

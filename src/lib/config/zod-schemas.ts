@@ -35,7 +35,7 @@ export const userSchema = z.object({
 	updatedAt: z.date().optional()
 });
 
-export type UserSchema = typeof userSchema;
+export type UserSchema = Infer<typeof userSchema>;
 
 export const userUpdatePasswordSchema = userSchema
 	.pick({ password: true, confirmPassword: true })

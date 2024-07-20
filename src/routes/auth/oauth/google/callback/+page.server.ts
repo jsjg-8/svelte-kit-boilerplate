@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import { getUserByEmail, createUser } from '$lib/server/database/schemas/user-model.js';
+import { getUserByEmail, createUser } from '$lib/server/db/user-model';
 import { googleOauth, lucia } from '$lib/server/lucia';
 import { OAuth2RequestError } from 'arctic';
 import { setFlash } from 'sveltekit-flash-message/server';

@@ -1,4 +1,3 @@
-
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import * as Form from '$lib/components/ui/form';
@@ -15,13 +14,12 @@
 
 	const form = superForm(data.form);
 	$: checked = true;
-	const { form: formData, enhance , delayed } = form;
+	const { form: formData, enhance, delayed } = form;
 </script>
 
-
-<div class="flex flex-col items-center justify-center mx-auto max-w-2xl">
+<div class="mx-auto flex max-w-2xl flex-col items-center justify-center">
 	<Button class="m-4" on:click={() => goto('/auth/oauth/google')}>Sign up with Google</Button>
-	<form   method="POST" use:enhance>
+	<form method="POST" use:enhance>
 		<Card.Root>
 			<Card.Header class="space-y-1">
 				<Card.Title class="text-2xl">Create an account</Card.Title>
@@ -65,7 +63,7 @@
 					name="terms"
 				>
 					<Form.Control let:attrs>
-						<Checkbox  {...attrs} bind:checked={$formData.terms} />
+						<Checkbox {...attrs} bind:checked={$formData.terms} />
 						<div class="space-y-1 leading-none">
 							<Form.Label>I Accept the terms and privacy policy.</Form.Label>
 							<Form.Description>
@@ -88,4 +86,3 @@
 		<SuperDebug data={$formData} />
 	</form>
 </div>
-{@debug checked, formData}
