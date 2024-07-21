@@ -1,10 +1,10 @@
 ﻿import { BASE_URL, APP_NAME } from '$lib/config/constants';
-import fs from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 
 // Read the HTML template
 const emailTemplatePath = path.resolve('src/lib/templates/email.html');
-const emailTemplateContent = fs.readFileSync(emailTemplatePath, 'utf8');
+const emailTemplateContent = readFileSync(emailTemplatePath, 'utf8');
 type vars = {
 	preheader_text: string;
 	recipient_name: string;
