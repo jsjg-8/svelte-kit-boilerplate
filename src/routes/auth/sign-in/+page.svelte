@@ -12,7 +12,7 @@
 	let data: { loginForm: SuperValidated<SignInSchema> } = { loginForm: $page.data.loginForm };
 	const form = superForm(data.loginForm);
 
-	const { form: formData, enhance, submitting } = form;
+	const { form: formData, enhance, delayed } = form;
 </script>
 
 <div class="mx-auto flex h-screen max-w-2xl flex-col items-center justify-center">
