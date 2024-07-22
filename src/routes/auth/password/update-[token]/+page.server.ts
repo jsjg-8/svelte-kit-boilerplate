@@ -3,7 +3,8 @@ import { setError, superValidate } from 'sveltekit-superforms/server';
 import { userUpdatePasswordSchema } from '$lib/config/zod-schemas';
 import { getUserByToken, updateUser } from '$lib/server/db/user-model';
 import { zod } from 'sveltekit-superforms/adapters';
-import { Argon2id } from 'oslo/password';
+import { hashPassword } from '@/utils';
+
 export const load = async (event) => {
 	const form = await superValidate(event, zod(userUpdatePasswordSchema));
 	return {
@@ -29,7 +30,7 @@ export const actions = {
 			const user = await getUserByToken(token);
 
 			if (user) {
-				const password = await new Argon2id().hash(form.data.password);
+				const password = await hashPassword(form.data.password);
 				// need to update with new token because token is also used for verification
 				// and needs a new verification token in case user has not verified their account
 				// and already forgot their password before verifying. Now they can get a new one resent.

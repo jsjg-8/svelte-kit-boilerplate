@@ -3,10 +3,10 @@ import { setFlash } from 'sveltekit-flash-message/server';
 import { setError, superValidate } from 'sveltekit-superforms/server';
 import type { PageServerLoad, Actions } from './$types.js';
 import { lucia } from '$lib/server/lucia';
-import { Argon2id } from 'oslo/password';
 import { userSchema } from '$lib/config/zod-schemas';
 import { getUserByEmail } from '$lib/server/db/user-model';
 import { zod } from 'sveltekit-superforms/adapters';
+import { verifyPassword } from '@/utils.js';
 
 const signInSchema = userSchema.pick({
 	email: true,
@@ -44,10 +44,7 @@ export const actions: Actions = {
 			}
 
 			if (existingUser.password) {
-				const validPassword = await new Argon2id().verify(
-					existingUser.password,
-					form.data.password
-				);
+				const validPassword = await verifyPassword(existingUser.password, form.data.password);
 				if (!validPassword) {
 					setFlash({ type: 'error', message: 'The email or password is incorrect.' }, event);
 					return setError(form, 'The email or password is incorrect.');

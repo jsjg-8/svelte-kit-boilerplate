@@ -2,12 +2,12 @@ import { signUpSchema } from '../schema';
 import { fail, redirect } from '@sveltejs/kit';
 import { setFlash } from 'sveltekit-flash-message/server';
 import { setError, superValidate } from 'sveltekit-superforms/server';
-import { Argon2id } from 'oslo/password';
 import { lucia } from '$lib/server/lucia';
 import { createUser } from '$lib/server/db/user-model';
 
 import { zod } from 'sveltekit-superforms/adapters';
 import { sendVerificationEmail } from '$lib/config/email-messages';
+import { hashPassword } from '@/utils';
 
 export const load = async (event) => {
 	if (event.locals.user) {
@@ -31,7 +31,7 @@ export const actions = {
 		}
 
 		try {
-			const password = await new Argon2id().hash(form.data.password);
+			const password = await hashPassword(form.data.password);
 			const token = crypto.randomUUID();
 			const id = crypto.randomUUID();
 			const user = {

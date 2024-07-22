@@ -104,3 +104,63 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
+
+export async function hashPassword(password: string): Promise<string> {
+	const encoder = new TextEncoder();
+	const salt = crypto.getRandomValues(new Uint8Array(16));
+	const passwordBuffer = encoder.encode(password);
+
+	const key = await crypto.subtle.importKey('raw', passwordBuffer, { name: 'PBKDF2' }, false, [
+		'deriveBits'
+	]);
+
+	const hash = await crypto.subtle.deriveBits(
+		{
+			name: 'PBKDF2',
+			salt: salt,
+			iterations: 100000,
+			hash: 'SHA-256'
+		},
+		key,
+		256
+	);
+
+	const hashArray = Array.from(new Uint8Array(hash));
+	const saltArray = Array.from(new Uint8Array(salt));
+	return btoa(String.fromCharCode(...saltArray, ...hashArray));
+}
+
+export async function verifyPassword(storedHash: string, inputPassword: string): Promise<boolean> {
+	const hashBuffer = Uint8Array.from(atob(storedHash), (c) => c.charCodeAt(0));
+	const salt = hashBuffer.slice(0, 16);
+	const hash = hashBuffer.slice(16);
+
+	const passwordBuffer = new TextEncoder().encode(inputPassword);
+
+	const key = await crypto.subtle.importKey('raw', passwordBuffer, { name: 'PBKDF2' }, false, [
+		'deriveBits'
+	]);
+
+	const newHash = await crypto.subtle.deriveBits(
+		{
+			name: 'PBKDF2',
+			salt: salt,
+			iterations: 100000,
+			hash: 'SHA-256'
+		},
+		key,
+		256
+	);
+
+	return timingSafeEqual(new Uint8Array(newHash), new Uint8Array(hash));
+}
+
+// Implement a timing-safe comparison function
+function timingSafeEqual(a: Uint8Array, b: Uint8Array): boolean {
+	if (a.length !== b.length) return false;
+	let result = 0;
+	for (let i = 0; i < a.length; i++) {
+		result |= a[i] ^ b[i];
+	}
+	return result === 0;
+}
