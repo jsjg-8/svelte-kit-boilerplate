@@ -1,6 +1,6 @@
 import { dev } from '$app/environment';
 export const BASE_URL = dev ? 'http://localhost:5173' : 'https://svelte-kit-starter.pages.dev/';
-export const APP_NAME = 'Svelte-kit Starte';
+export const APP_NAME = 'Svelte-kit Starter';
 export const CONTACT_EMAIL = 'jsjggroups@gmail.com';
 export const DOMAIN = 'svelte-kit-starter.pages.dev';
 /* WARNING!!! TERMS AND CONDITIONS AND PRIVACY POLICY 
