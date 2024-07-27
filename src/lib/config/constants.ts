@@ -3,8 +3,8 @@ export const BASE_URL = dev ? 'http://localhost:5173' : 'https://svelte-kit-star
 export const APP_NAME = 'Svelte-kit Starter';
 export const CONTACT_EMAIL = 'jsjggroups@gmail.com';
 export const DOMAIN = 'svelte-kit-starter.pages.dev';
-/* WARNING!!! TERMS AND CONDITIONS AND PRIVACY POLICY 
-WERE CREATED BY CHATGPT AS AN EXAMPLE ONLY. 
+/* WARNING!!! TERMS AND CONDITIONS AND PRIVACY POLICY
+WERE CREATED BY CHATGPT AS AN EXAMPLE ONLY.
 CONSULT A LAWYER AND DEVELOP YOUR OWN TERMS AND PRIVACY POLICY!!! */
 export const TERMS_PRIVACY_CONTACT_EMAIL = 'jsjggroups@gmail.com';
 export const TERMS_PRIVACY_WEBSITE = 'yourdomain.com';
